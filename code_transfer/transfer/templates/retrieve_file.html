@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Retrieve File</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    .container {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 380px;
+    }
+    .container h2 {
+      margin-bottom: 20px;
+      color: #bb86fc;
+      font-size: 1.5em;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      text-align: left;
+      font-size: 1em;
+      margin-bottom: 5px;
+    }
+    input[type="text"] {
+      border: 2px solid #bb86fc;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
+    }
+    input[type="text"]:focus {
+      border-color: #9a4acc;
+      outline: none;
+    }
+    button {
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #121212;
+      background-color: #bb86fc;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #9a4acc;
+    }
+  </style>
+</head>
+<body>
+    <div class="container">
+      <h2>Retrieve File</h2>
+      <form method="post">
+        {% csrf_token %}
+        <label for="retrieval_code">Enter Retrieval Code:</label>
+        <input type="text" name="retrieval_code" id="retrieval_code" required>
+        <button type="submit">Retrieve</button>
+      </form>
+      {% if error %}
+        <p style="color: red;">{{ error }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload File</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    .container {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 380px;
+    }
+    .container h2 {
+      margin-bottom: 20px;
+      color: #bb86fc;
+      font-size: 1.5em;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input[type="file"] {
+      border: 2px solid #bb86fc;
+      border-radius: 8px;
+      padding: 10px;
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      font-size: 1em;
+      cursor: pointer;
+      transition: border-color 0.3s ease;
+    }
+    input[type="file"]::file-selector-button {
+      padding: 8px 12px;
+      color: #121212;
+      background-color: #bb86fc;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    input[type="file"]::file-selector-button:hover {
+      background-color: #9a4acc;
+    }
+    button {
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #121212;
+      background-color: #bb86fc;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #9a4acc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Upload File</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file" />
+        <button type="submit">Upload</button>
+    </form>
+  </div>
+
+</body>
+</html>

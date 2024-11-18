@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sender</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    .container {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 380px;
+    }
+    .container h2 {
+      margin-bottom: 20px;
+      color: #bb86fc;
+      font-size: 1.5em;
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      margin: 20px 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: #121212;
+      background-color: #bb86fc;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #9a4acc;
+    }
+    #clipboard-text {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+      border: 1px solid #bb86fc;
+      border-radius: 8px;
+      font-size: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Sender Actions</h2>
+
+    <button class="btn" onclick="pasteFromClipboard()">Paste On Clipboard</button>
+
+    <button class="btn" onclick="uploadFile()">Upload File</button>
+
+    <div id="clipboard-text" hidden></div>
+  </div>
+
+  <script>
+    function pasteFromClipboard() {
+        window.location.href = "{% url 'upload_clipboard' %}";
+    }
+
+    function uploadFile() {
+      window.location.href = "{% url 'upload_file' %}";
+    }
+  </script>
+
+</body>
+</html>

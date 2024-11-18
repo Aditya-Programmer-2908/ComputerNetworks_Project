@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Successful</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+    .container {
+      background-color: #1e1e1e;
+      border-radius: 12px;
+      padding: 40px;
+      box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      width: 380px;
+    }
+    .container h2 {
+      margin-bottom: 20px;
+      color: #4caf50; /* Success color */
+      font-size: 1.5em;
+    }
+    .container p {
+      margin: 10px 0;
+      font-size: 1.1em;
+      color: #e0e0e0;
+    }
+    .container strong {
+      color: #bb86fc;
+      font-size: 1.2em;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #121212;
+      background-color: #bb86fc;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #9a4acc;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Upload Successful</h2>
+    <p>Your retrieval code: <strong>{{ code }}</strong></p>
+    <button class="btn" onclick="redirectToHome()">Back to Home</button>
+  </div>
+
+  <script>
+    function redirectToHome() {
+      window.location.href = "/";
+    }
+  </script>
+
+</body>
+</html>
